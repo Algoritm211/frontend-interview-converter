@@ -5,7 +5,6 @@ import ConvertScreen from "./components/ConvertScreen/ConvertScreen";
 import {AppBar, IconButton, Toolbar, Typography} from "@material-ui/core";
 import MenuIcon from "@material-ui/icons/Menu";
 import Drawer from "./components/Navigation/Drawer";
-import CloseIcon from '@material-ui/icons/Close';
 import MenuToggle from "./components/Navigation/MenuToggle";
 
 const App: React.FC = () =>  {
@@ -17,7 +16,7 @@ const App: React.FC = () =>  {
   }
 
   return (
-    <div className="App">
+    <div className={classes.App}>
       <AppBar position="static">
         <Toolbar>
           <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="menu">
