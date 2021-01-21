@@ -2,9 +2,11 @@
 import {Action, applyMiddleware, combineReducers, createStore} from "redux";
 import thunkMiddleware, {ThunkAction} from 'redux-thunk'
 import {converterReducer} from "./converter-reducer";
+import {currencyListReducer} from "./currencyList-reducer";
 
 const rootReducer = combineReducers({
-  converter: converterReducer
+  converter: converterReducer,
+  currencyList: currencyListReducer
 })
 
 type RootReducerType = typeof rootReducer

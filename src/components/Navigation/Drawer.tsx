@@ -27,8 +27,7 @@ const Drawer: React.FC<Props> = (props) => {
       <li key={index}>
         <NavLink
           to={link.to}
-          onClick={() => {
-          }}
+          onClick={props.onClose}
           activeClassName={classes.active}
         >
           {link.label}
