@@ -6,6 +6,7 @@ import {AppBar, IconButton, Toolbar, Typography} from "@material-ui/core";
 import MenuIcon from "@material-ui/icons/Menu";
 import Drawer from "./components/Navigation/Drawer";
 import MenuToggle from "./components/Navigation/MenuToggle";
+import CurrencyList from "./components/CurrencyList/CurrencyList";
 
 const App: React.FC = () =>  {
 
@@ -30,8 +31,9 @@ const App: React.FC = () =>  {
       <Drawer isOpen={isMenuOpen} onClose={onMenuToggle}/>
       <MenuToggle isOpen={isMenuOpen} onToggle={onMenuToggle}/>
       <Switch>
+        <Route path={'/main'} render={() => <CurrencyList />}/>
         <Route path={'/converter'} render={() => <ConvertScreen />}/>
-        <Redirect to={'/converter'} />
+        <Redirect to={'/main'} />
       </Switch>
     </div>
   );

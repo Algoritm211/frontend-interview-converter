@@ -3,6 +3,9 @@ import React, {useState} from 'react'
 import {Button, InputLabel, OutlinedInput, Select, TextField} from "@material-ui/core";
 import MenuItem from '@material-ui/core/MenuItem'
 import classes from './ConvertForm.module.scss'
+import {useDispatch} from "react-redux";
+import {actions, convertCurrency} from "../../../redux/converter-reducer";
+import { allAvailableCurrencies } from '../../common/all-currencies';
 
 type FormValuesType =  {
   fromConvert: string,
@@ -13,15 +16,24 @@ type FormValuesType =  {
 const ConvertForm: React.FC = () => {
   const [openFromInput, setOpenFromInput] = useState(false)
   const [openToInput, setOpenToInput] = useState(false)
+  const dispatch = useDispatch()
+
+  const currencySelectList = (fromToParam: 'from' | 'to') => {
+    const currObject = allAvailableCurrencies.map((currency, index) => {
+      return <MenuItem value={currency} key={index + fromToParam}>{currency}</MenuItem>
+    })
+
+    return currObject
+  }
 
   const formik = useFormik({
     initialValues: {
       fromConvert: 'USD',
-      toConvert: 'UAH',
+      toConvert: 'USD',
       amount: '1'
     } as FormValuesType,
-    onSubmit: values => {
-      alert(JSON.stringify(values, null, 2));
+    onSubmit: (values) => {
+      dispatch(convertCurrency(values.fromConvert, values.toConvert, values.amount))
     },
   });
   return (
@@ -42,8 +54,7 @@ const ConvertForm: React.FC = () => {
           <MenuItem value="">
             <em>Выберите Валюту</em>
           </MenuItem>
-          <MenuItem value={'USD'}>USD</MenuItem>
-          <MenuItem value={'UAH'}>UAH</MenuItem>
+          {currencySelectList('from')}
         </Select>
       </div>
       <div className={classes.text}>В</div>
@@ -55,15 +66,14 @@ const ConvertForm: React.FC = () => {
           open={openToInput}
           onClose={() => setOpenToInput(false)}
           onOpen={() => setOpenToInput(true)}
-          value={formik.values.fromConvert}
+          value={formik.values.toConvert}
           onChange={formik.handleChange}
           className={classes.select}
         >
           <MenuItem value="">
             <em>Выберите Валюту</em>
           </MenuItem>
-          <MenuItem value={'USD'}>USD</MenuItem>
-          <MenuItem value={'UAH'}>UAH</MenuItem>
+          {currencySelectList('to')}
         </Select>
       </div>
       <div>
