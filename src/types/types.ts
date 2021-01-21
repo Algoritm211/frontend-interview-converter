@@ -1,6 +1,8 @@
 
+export type RatesType = {[key: string]: number}
+
 export interface IResponseCurrencies {
-  rates: { [key:string]: number },
+  rates: RatesType,
   base: string
   date: string
 }
