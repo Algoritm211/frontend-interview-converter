@@ -1,0 +1,26 @@
+{
+  "files": {
+    "main.css": "/frontend-interview-converter/static/css/main.67c1df6c.chunk.css",
+    "main.js": "/frontend-interview-converter/static/js/main.555c2c0e.chunk.js",
+    "main.js.map": "/frontend-interview-converter/static/js/main.555c2c0e.chunk.js.map",
+    "runtime-main.js": "/frontend-interview-converter/static/js/runtime-main.330bd201.js",
+    "runtime-main.js.map": "/frontend-interview-converter/static/js/runtime-main.330bd201.js.map",
+    "static/js/2.96c1552e.chunk.js": "/frontend-interview-converter/static/js/2.96c1552e.chunk.js",
+    "static/js/2.96c1552e.chunk.js.map": "/frontend-interview-converter/static/js/2.96c1552e.chunk.js.map",
+    "static/css/3.3cc990a9.chunk.css": "/frontend-interview-converter/static/css/3.3cc990a9.chunk.css",
+    "static/js/3.f3c1893b.chunk.js": "/frontend-interview-converter/static/js/3.f3c1893b.chunk.js",
+    "static/js/3.f3c1893b.chunk.js.map": "/frontend-interview-converter/static/js/3.f3c1893b.chunk.js.map",
+    "static/js/4.db38fa26.chunk.js": "/frontend-interview-converter/static/js/4.db38fa26.chunk.js",
+    "static/js/4.db38fa26.chunk.js.map": "/frontend-interview-converter/static/js/4.db38fa26.chunk.js.map",
+    "index.html": "/frontend-interview-converter/index.html",
+    "static/css/3.3cc990a9.chunk.css.map": "/frontend-interview-converter/static/css/3.3cc990a9.chunk.css.map",
+    "static/css/main.67c1df6c.chunk.css.map": "/frontend-interview-converter/static/css/main.67c1df6c.chunk.css.map",
+    "static/js/2.96c1552e.chunk.js.LICENSE.txt": "/frontend-interview-converter/static/js/2.96c1552e.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.330bd201.js",
+    "static/js/2.96c1552e.chunk.js",
+    "static/css/main.67c1df6c.chunk.css",
+    "static/js/main.555c2c0e.chunk.js"
+  ]
+}
