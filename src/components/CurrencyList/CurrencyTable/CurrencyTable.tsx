@@ -2,7 +2,7 @@ import React, {useEffect} from "react";
 import {Paper, Table, TableBody, TableCell, TableContainer, TableHead, TableRow} from "@material-ui/core";
 import classes from "./CurrencyTable.module.scss";
 import {useDispatch, useSelector} from "react-redux";
-import {getBaseCurrency, getFavorites, getRates} from "../../../redux/currencyList-selector";
+import {getBaseCurrency, getFavorites, getIsLoading, getRates} from "../../../redux/currencyList-selector";
 import { loadCurrencies } from "../../../redux/currencyList-reducer";
 import { sortFavorites } from "../../common/helpers";
 import classNames from "classnames";
@@ -14,6 +14,7 @@ const CurrencyTable: React.FC = () => {
   const rates = useSelector(getRates)
   const base = useSelector(getBaseCurrency)
   const favoriteCurrencies = useSelector(getFavorites)
+  const loading = useSelector(getIsLoading)
 
   useEffect(() => {
     dispatch(loadCurrencies())
@@ -25,9 +26,16 @@ const CurrencyTable: React.FC = () => {
     return (
       <TableRow key={index}>
         <TableCell align="center">
-          {`${base}/`}<span className={classNames({[classes.favoriteCurrency] : favoriteCurrencies.includes(rate)})}>{rate}</span>
+          {loading
+            ? '...loading'
+            : <React.Fragment>
+              {`${base}/`}
+              <span className={classNames({[classes.favoriteCurrency] : favoriteCurrencies.includes(rate)})}>
+              {rate}</span>
+            </React.Fragment>
+          }
         </TableCell>
-        <TableCell align="center">{rates[rate]}</TableCell>
+        <TableCell align="center">{!loading ? rates[rate] : '...loading'}</TableCell>
       </TableRow>
     )
   })

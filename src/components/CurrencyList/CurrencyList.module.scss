@@ -8,3 +8,11 @@
 .currencyTable {
   width: 320px;
 }
+
+.settingsButtons {
+  width: 320px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-around;
+  margin-bottom: 20px;
+}

@@ -5,6 +5,7 @@ import { RatesType } from '../types/types';
 
 const TOGGLE_LOADING = 'frontend-interview-converter/currencyList/TOGGLE_LOADING'
 const SET_RATES = 'frontend-interview-converter/currencyList/SET_RATES'
+const SET_BASE_CURRENCY = 'frontend-interview-converter/currencyList/SET_BASE_CURRENCY'
 const SET_FAVORITE_CURRENCIES = 'frontend-interview-converter/currencyList/SET_FAVORITE_CURRENCIES'
 
 
@@ -29,6 +30,11 @@ export const currencyListReducer = (state = initialState, action: ActionsType) =
         ...state,
         loading: action.loading
       }
+    case SET_BASE_CURRENCY:
+      return {
+        ...state,
+        base: action.baseCurrency
+      }
     case SET_RATES:
       return {
         ...state,
@@ -49,6 +55,12 @@ export const actions = {
     return {
       type: TOGGLE_LOADING,
       loading: loading
+    } as const
+  },
+  setBase(baseCurrency: string) {
+    return {
+      type: SET_BASE_CURRENCY,
+      baseCurrency: baseCurrency
     } as const
   },
   setRates(rates: RatesType) {

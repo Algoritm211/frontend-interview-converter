@@ -1,5 +1,5 @@
 import {Button, Checkbox, FormControlLabel} from "@material-ui/core";
-import {Field, Form, Formik, FormikProps} from "formik";
+import {Form, Formik} from "formik";
 import React from "react";
 import classes from './FavoriteModalForm.module.scss'
 import {allAvailableCurrencies} from "../../../common/all-currencies";
@@ -7,8 +7,11 @@ import {useDispatch, useSelector} from "react-redux";
 import {getFavorites} from "../../../../redux/currencyList-selector";
 import { actions } from "../../../../redux/currencyList-reducer";
 
+type Props = {
+  toggleClose: () => void
+}
 
-const FavoriteModalForm = () => {
+const FavoriteModalForm: React.FC<Props> = (props) => {
 
   // Any because it is formik handleChange
   const checkBoxes = (handleChange: any, checkedArr: Array<string>) => {
@@ -18,7 +21,6 @@ const FavoriteModalForm = () => {
         <div className={classes.checkBox} key={index}>
           <FormControlLabel control={
             <Checkbox
-              id="checkedCurrencies"
               name="checkedCurrencies"
               onChange={ handleChange }
               checked={checked}
@@ -40,12 +42,13 @@ const FavoriteModalForm = () => {
         initialValues={{
           checkedCurrencies: favoriteCurrencies,
         }}
-        onSubmit={async (values) => {
-            dispatch(actions.setFavoriteCurrencies(values.checkedCurrencies))
+        onSubmit={(values) => {
+          dispatch(actions.setFavoriteCurrencies(values.checkedCurrencies))
+          props.toggleClose()
           // alert(JSON.stringify(values, null, 2));
         }}
       >
-        {({values, setFieldValue, handleChange}) => (
+        {({values, handleChange}) => (
           <Form>
             <div role="group" aria-labelledby="checkbox-group">
               {checkBoxes(handleChange, values.checkedCurrencies)}
@@ -62,9 +65,4 @@ const FavoriteModalForm = () => {
 }
 
 
-const CustomCheck: React.FC = (props) => {
-  return (
-    <Checkbox color={"primary"} />
-  )
-}
 export default FavoriteModalForm

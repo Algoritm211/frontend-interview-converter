@@ -5,6 +5,14 @@
 }
 
 .submitButton {
+  position: absolute;
+  display: block;
+  bottom: 0;
+  right: calc(50% - 120px);
+  left: calc(50% - 120px);
   margin: 20px auto;
   text-align: center;
+  button {
+    width: 120px;
+  }
 }

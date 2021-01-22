@@ -1,10 +1,10 @@
 import { useFormik } from 'formik';
 import React, {useState} from 'react'
-import {Button, InputLabel, OutlinedInput, Select, TextField} from "@material-ui/core";
+import {Button, InputLabel, OutlinedInput, Select} from "@material-ui/core";
 import MenuItem from '@material-ui/core/MenuItem'
 import classes from './ConvertForm.module.scss'
 import {useDispatch} from "react-redux";
-import {actions, convertCurrency} from "../../../redux/converter-reducer";
+import {convertCurrency} from "../../../redux/converter-reducer";
 import { allAvailableCurrencies } from '../../common/all-currencies';
 
 type FormValuesType =  {

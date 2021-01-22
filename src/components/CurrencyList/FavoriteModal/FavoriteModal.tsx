@@ -1,5 +1,5 @@
 import React from "react";
-import {Button, Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle} from "@material-ui/core";
+import { Dialog, DialogContent, DialogTitle} from "@material-ui/core";
 import classes from './FavoriteModal.module.scss';
 import FavoriteModalForm from "./FavoriteModalForm/FavoriteModalForm";
 
@@ -18,9 +18,7 @@ const FavoriteModal:React.FC<Props> = ({toggleClose}) => {
       >
         <DialogTitle id="alert-dialog-title">{"Избранное"}</DialogTitle>
         <DialogContent>
-          <DialogContentText id="alert-dialog-description">
-            <FavoriteModalForm />
-          </DialogContentText>
+            <FavoriteModalForm toggleClose={toggleClose}/>
         </DialogContent>
       </Dialog>
   )
